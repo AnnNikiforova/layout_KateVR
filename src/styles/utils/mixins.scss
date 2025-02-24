@@ -55,6 +55,7 @@
 @mixin section-item-style {
   display: flex;
   flex-direction: column;
+  align-items: center;
   cursor: pointer;
 
   &__headline {
@@ -82,7 +83,7 @@
   }
 
   &__img-wrapper {
-    width: 100%;
+    width: 80px;
     height: 80px;
     display: none;
 
@@ -202,22 +203,27 @@
   opacity: 0;
 }
 
+@mixin autofill {
+  &:-webkit-autofill {
+    transition:
+      background-color 5000s ease-in-out 0s,
+      color 5000s ease-in-out 0s;
+  }
+}
+
 @mixin form-styles {
   color: #fff;
-  background-color: transparent;
+  background-color: #05040b;
   border: none;
   outline: none;
   border-bottom: 1px solid $text-color;
   padding-bottom: 6px;
   transition: $effectDuration;
-}
 
-@mixin autofill {
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px #fff inset;
-    -webkit-text-fill-color: #fff;
+  &:focus-visible {
+    outline: none;
+    color: #fff;
+    border-bottom: 1px solid $text-color;
+    background-color: transparent;
   }
 }
