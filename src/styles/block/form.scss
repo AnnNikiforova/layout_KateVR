@@ -5,42 +5,42 @@
     gap: 24px;
   }
 
+  &__label {
+    transition: $effectDuration;
+    color: $text-color;
+  }
+
+  &__input {
+    @include form-styles;
+    @include autofill;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__textarea {
+    @include form-styles;
+    @include autofill;
+
+    resize: none;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
   &__field {
     display: flex;
     flex-direction: column;
     gap: 4px;
 
-    &__label {
-      transition: $effectDuration;
-      color: $text-color;
-    }
-
     &:focus-within .form__label {
       color: $contrast-color;
     }
 
-    &__input {
-      @include form-styles;
-      @include autofill;
-
-      &:disabled {
-        cursor: not-allowed;
-      }
-    }
-
     &:focus-within .form__input {
       border-bottom-color: $contrast-color;
-    }
-
-    &__textarea {
-      @include form-styles;
-      @include autofill;
-
-      resize: none;
-
-      &:disabled {
-        cursor: not-allowed;
-      }
     }
 
     &:focus-within .form__textarea {
